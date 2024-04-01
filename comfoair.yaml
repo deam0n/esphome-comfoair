@@ -71,9 +71,9 @@ comfoair:
   outside_air_temperature:
     name: "comfoair_outside_air_temperature"
   supply_air_temperature:
-    name: "comfoair_supply_air_temperature"
+    name: "comfoair_intake_air_temperature"
   return_air_temperature:
-    name: "comfoair_return_air_temperature"
+    name: "comfoair_exhaust_air_temperature"
   exhaust_air_temperature:
     name: "comfoair_exhaust_air_temperature"
   #enthalpy_temperature:
@@ -85,11 +85,11 @@ comfoair:
   #kitchen_hood_temperature:
   #  name: "kitchen_hood_temperature"
   return_air_level:
-    name: "comfoair_return_air_level"
+    name: "comfoair_exhaust_air_level"
   supply_air_level:
-    name: "comfoair_supply_air_level"
+    name: "comfoair_intake_air_level"
   supply_fan_active:
-    name: "comfoair_supply_fan_active"
+    name: "comfoair_intake_fan_active"
   filter_status:
     name: "comfoair_filter_status"
   #enthalpy_present:
