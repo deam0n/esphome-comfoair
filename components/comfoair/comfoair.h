@@ -196,7 +196,7 @@ public:
     write_command_(CMD_RESET_AND_SELF_TEST, reset_cmd, sizeof(reset_cmd));
 	}
 
-  void filter_reset(void) {
+  void reset_and_self_test(void) {
     uint8_t reset_cmd[4] = {0, 0, 0, 1};
     write_command_(CMD_RESET_AND_SELF_TEST, reset_cmd, sizeof(reset_cmd));
 	}
