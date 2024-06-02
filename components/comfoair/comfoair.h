@@ -56,10 +56,10 @@ public:
 
       fan_mode = *call.get_fan_mode();
       switch (fan_mode.value()) {
-		case climate::CLIMATE_FAN_FOCUS:
-			reset_and_self_test();
-			level = 0x02;
-			break;
+	case climate::CLIMATE_FAN_FOCUS:
+	  filter_reset();
+	  level = 0x02;
+	  break;
         case climate::CLIMATE_FAN_HIGH:
           level = 0x04;
           break;
@@ -196,7 +196,7 @@ public:
     write_command_(CMD_RESET_AND_SELF_TEST, reset_cmd, sizeof(reset_cmd));
 	}
 
-  void reset_and_self_test(void) {
+  void filter_reset(void) {
     uint8_t reset_cmd[4] = {0, 0, 0, 1};
     write_command_(CMD_RESET_AND_SELF_TEST, reset_cmd, sizeof(reset_cmd));
 	}
