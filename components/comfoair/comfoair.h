@@ -251,11 +251,13 @@ protected:
 
   uint8_t comfoair_checksum_(const uint8_t *command_data, uint8_t length) const {
     uint8_t sum = 0;
-    for (uint8_t i = 0; i < length; i++) {
-      sum += command_data[i];
+    if (length > 0) {
+        for (uint8_t i = 0; i < length; i++) {
+            sum += command_data[i];
+        }
     }
     return sum + 0xad;
-  }
+}
 
   optional<bool> check_byte_() const {
     uint8_t index = data_index_;
