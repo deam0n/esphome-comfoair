@@ -17,10 +17,10 @@ static const char *TAG = "comfoair";
 class ComfoAirComponent : public climate::Climate, public PollingComponent, public uart::UARTDevice {
 public:
 
-  // Poll every 600ms
+  // Poll every 2000ms
   ComfoAirComponent() :
   Climate(),
-  PollingComponent(600),
+  PollingComponent(2000),
   UARTDevice() { }
 
   /// Return the traits of this controller.
@@ -43,6 +43,7 @@ public:
       climate::CLIMATE_FAN_LOW,
       climate::CLIMATE_FAN_MEDIUM,
       climate::CLIMATE_FAN_HIGH,
+      climate::CLIMATE_FAN_FOCUS,
       climate::CLIMATE_FAN_OFF,
     });
     return traits;
@@ -55,6 +56,10 @@ public:
 
       fan_mode = *call.get_fan_mode();
       switch (fan_mode.value()) {
+	case climate::CLIMATE_FAN_FOCUS:
+		filter_reset();
+		level = 0x02;
+		break;
         case climate::CLIMATE_FAN_HIGH:
           level = 0x04;
           break;
